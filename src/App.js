@@ -10,17 +10,17 @@ const Layout = () => {
   )
 }
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <Home />
-      }]
-  }
-])
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Layout />,
+//     children: [
+//       {
+//         path: '/',
+//         element: <Home />
+//       }]
+//   }
+// ])
 
 function App() {
   return (
