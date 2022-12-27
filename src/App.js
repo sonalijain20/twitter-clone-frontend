@@ -1,35 +1,79 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import './App.css';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const Layout = () => {
+import './App.css';
+import { Home } from "./components/Home/Home";
+import { Login } from "./components/Login/Login";
+import { Feed } from "./components/Feed/Feed";
+import { Profile } from "./components/Profile/Profile";
+// import { Logout } from "./components/Logout/Logout";
+import { Navbar } from "./components/Navbar/Navbar";
+import { ErrorPage } from "./assets/images/ErrorPage/ErrorPage";
+import { NavigateBefore } from "@mui/icons-material";
+
+const Layout = ({ isHome }) => {
+  console.log(isHome)
   return (
-    <div>
-      <h1>Navbar</h1>
+    <div className="md:w-8/12 mx-auto">
+      {/* {isHome ? <Navbar /> : null} */}
       <Outlet></Outlet>
     </div>
   )
 }
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Layout />,
-//     children: [
-//       {
-//         path: '/',
-//         element: <Home />
-//       }]
-//   }
-// ])
+const router = createBrowserRouter([
+  {
+    path: "/",
+    errorElement: <ErrorPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "/profile/:id",
+        element: <Profile />,
+      },
+      {
+        path: "/feed",
+        element: <Feed />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/logout",
+        element: <Login />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <div >
-      <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+// function App() {
+//   return (
+//     <div >
+//       <Router>
+//         <MainFrame />
+//       </Router>
+//     </div>
+//   );
+// }
+
+// export default App;
