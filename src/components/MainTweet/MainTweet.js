@@ -16,7 +16,7 @@ export const MainTweet = () => {
                     Post
                 </button>
             </form>
-            <Tweet></Tweet>
+            <Tweet />
         </div>
 
 

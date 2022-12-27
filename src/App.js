@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 import { Home } from "./components/Home/Home";
@@ -10,6 +9,7 @@ import { Profile } from "./components/Profile/Profile";
 import { Navbar } from "./components/Navbar/Navbar";
 import { ErrorPage } from "./assets/images/ErrorPage/ErrorPage";
 import { NavigateBefore } from "@mui/icons-material";
+import { Register } from "./components/Register/Register";
 
 const Layout = ({ isHome }) => {
   console.log(isHome)
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
         path: "/logout",
         element: <Login />,
       },
+      {
+        path: "/register",
+        element: <Register />
+      }
     ],
   },
 ]);
